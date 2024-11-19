@@ -1,0 +1,64 @@
+
+  .id-proyects, .id-about-me, .id-contact, .id-tecnologies {
+    display: flex;
+    flex-direction: column; /* Cambia el flujo a vertical */
+    justify-content: center; /* Centra el contenido verticalmente */
+    align-items: baseline; /* Centra horizontalmente */
+    padding: 1rem;
+}
+
+.id-proyects img, 
+.id-about-me img, 
+.id-contact img, 
+.id-tecnologies img {
+   /* Espacio entre el ícono y el texto */
+  cursor: pointer;
+  position: relative;
+  padding-left: 20px;
+}
+
+.id-proyects p, 
+.id-about-me p, 
+.id-contact p, 
+.id-tecnologies p {
+    font-size: 0.65rem;
+    margin: 0.5rem;
+    cursor: pointer;
+    width: 90px;
+}
+
+.win-98-taskbar {
+  padding: 0.3rem;
+  background-color: #C0C0C0;
+  color: #111;
+  font-size: 0.5rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+  box-shadow: inset 0px 2.5px 0 #ffffffde, inset -2.5px -1.5px 0 #000000d5;
+  border: none;
+}
+
+.win-98-start-btn {
+  display: flex;
+  align-items: center; /* Alinea verticalmente el ícono y el texto */
+  gap: 0.5rem; /* Espaciado entre el ícono y el texto */
+  padding: 0.1rem 0.6rem;
+  background-color: #C0C0C0; /* Fondo del botón Start */
+  cursor: pointer;
+  border-radius: 2px; /* Bordes ligeramente redondeados */
+  border: none;
+  width: 70px; /* Ancho del botón Start */
+  box-shadow: inset 0px 2.5px 0 #ffffffde, inset -2.5px -1.5px 0 #000000d5;
+}
+
+.win-98-start-btn img {
+  width: 1.6rem; /* Ajusta el tamaño del ícono */
+  height: auto;
+}
+
+.win-98-start-btn p {
+  margin: 0;
+  font-size: 0.65rem; /* Tamaño del texto */
+}

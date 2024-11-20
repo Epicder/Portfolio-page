@@ -16,6 +16,7 @@ import TechIcon from './assets/tech-icon.png'
 import Me from './assets/me.jpg'
 import { useState } from 'react'
 import { motion } from "framer-motion"
+import { useEffect } from 'react'
 
 
 const Icons = (props) => {
@@ -75,9 +76,6 @@ const animationPropsProjects = {
     animate: { opacity: 1, y: 0 },
     transition: { duration: 1.4 }
 };
-
-
-
 
 
 const Projects = () => {
@@ -194,6 +192,33 @@ const TechInfo = () => {
 }
 
 export default function Desktop() {
+
+    useEffect(() => {
+        const imagePaths = [
+          Proyects,
+          AboutMe,
+          Contact,
+          Tecnologies,
+          powerOn,
+          Clippy,
+          Close,
+          Joystick,
+          Html,
+          Api,
+          AboutMeIcon,
+          ContactIcon,
+          ProjectsIcon,
+          TechIcon,
+          Me
+        ];
+    
+        imagePaths.forEach((path) => {
+          const img = new Image();
+          img.src = path;
+        });
+      }, []);
+
+
     const [isTextGlobeVisible, setTextGlobeVisible] = useState(true);
     const [isExplorerVisible, setExplorerVisible] = useState(false);
     const [isExplorerVisibleAboutMe, setExplorerVisibleAboutMe] = useState(false);
@@ -328,16 +353,18 @@ const ExplorerWindow = (props) => {
                 </div>
             )}
             
-
             <motion.div {...animationProps}>
                 <Icons class="id-proyects" name="My Projects" icon={Proyects} onClick={handleFrame} />
             </motion.div>
+
             <motion.div {...animationProps}>
                 <Icons class="id-about-me" name="About Me.txt" icon={AboutMe} onClick={handleFrameAboutMe}/>
             </motion.div>
+
             <motion.div {...animationProps}>
                 <Icons class="id-contact" name="Contact.exe" icon={Contact} onClick={handleFrameContact}/>
             </motion.div>
+
             <motion.div {...animationProps}>
                 <Icons class="id-tecnologies" name="Technologies I Use.exe" icon={Tecnologies} onClick={handleFrameTech}/>
             </motion.div>

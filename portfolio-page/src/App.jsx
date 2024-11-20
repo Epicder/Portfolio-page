@@ -4,7 +4,6 @@ import powerOn from './assets/power-on.png'
 import Desktop from './Desktop.jsx'
 
 
-
 export default function App() {
 
   const [off, setPower] = useState(false)

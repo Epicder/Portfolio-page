@@ -253,6 +253,25 @@ h3 {
   border-radius: 2px;
 }
 
+.tech-button {
+  background-color: #C0C0C0;
+  color: #000;
+  border: 1px solid #808080;
+  box-shadow: -2px -2px 0 #fff, 2px 2px 0 #000;
+  margin-left: 5px;
+  margin-bottom: 25px;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  font-size: 0.7rem;
+  font-family: "px_sans_nouveaux";
+  border-radius: 2px;
+}
+
+.tech-button p {
+  padding-left: 5px;
+}
 
 .fade-in {
   opacity: 0;

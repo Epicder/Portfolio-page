@@ -12,6 +12,7 @@ import Api from './assets/Api.png'
 import AboutMeIcon from './assets/about-me-icon.png'
 import ContactIcon from './assets/contact-icon.png'
 import ProjectsIcon from './assets/project-icon.png'
+import TechIcon from './assets/tech-icon.png'
 import Me from './assets/me.jpg'
 import { useState } from 'react'
 import { motion } from "framer-motion"
@@ -72,7 +73,7 @@ const TextGlobe = (props) => {
 const animationPropsProjects = {
     initial: { opacity: 0, y: 15 },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 1.6 }
+    transition: { duration: 1.4 }
 };
 
 
@@ -134,32 +135,60 @@ const AboutMeInfo = () => {
 const ContactInfo = () => {
     return (
         <div className='contact-info'>
+            <a href="mailto:epicder12@gmail.com">
             <div className='contact-button'>
                 <h3>📧 Email:&nbsp;</h3>
-                <a href="mailto:epicder12@gmail.com">
                 <p>
                     epicder12@gmail.com
                 </p>
-                </a>
             </div>
-            
+            </a>
+            <a href="https://github.com/Epicder" target="_blank">
             <div className='contact-button'>
                 <h3>🐱‍💻 Github:&nbsp;</h3>
-                <a href="https://github.com/Epicder" target="_blank">
+
                 <p>
                     Epicder
                 </p>
-                </a>
+                
             </div>
-
+            </a>
+            <a href="https://www.linkedin.com/in/epicder/" target="_blank">
             <div className='contact-button'>
-                <h3>🔗 LinkedIn:&nbsp;</h3>
-                <a href="https://www.linkedin.com/in/epicder/" target="_blank">
+                <h3>🔗 LinkedIn:&nbsp;</h3> 
                 <p>
                     Elián González
-                </p>
-                </a>
+                </p>  
             </div>
+            </a>
+        </div>
+    )
+}
+
+const TechInfo = () => {
+    return (
+        <div className='tech-info'>
+            <h2>🔧 FrontEnd</h2>
+            <div className='tech-button'>
+                
+                <p>
+                    React, JavaScript, TypeScript, Html, Css, Flutter
+                </p>
+            </div>
+            <h2>🔨 BackEnd</h2>
+            <div className='tech-button'>
+                
+                <p>
+                    Node.js, Express, Python, Flask, Firebase(Firestore, Auth, Storage)
+                </p>
+            </div>
+            <h2>📦 Enviroment/Tools</h2>
+            <div className='tech-button'>
+                <h3></h3>
+                <p>
+                    Git, Github, VSCode, Android Studio, Figma, Adobe Photoshop
+                </p>
+                </div>
         </div>
     )
 }
@@ -169,6 +198,7 @@ export default function Desktop() {
     const [isExplorerVisible, setExplorerVisible] = useState(false);
     const [isExplorerVisibleAboutMe, setExplorerVisibleAboutMe] = useState(false);
     const [isExplorerVisibleContact, setExplorerVisibleContact] = useState(false);
+    const [isExplorerVisibleTech, setExplorerVisibleTech] = useState(false);
 
 const ExplorerWindow = (props) => {
     return (
@@ -205,6 +235,7 @@ const ExplorerWindow = (props) => {
         setExplorerVisible(false);
         setExplorerVisibleAboutMe(false);
         setExplorerVisibleContact(false);
+        setExplorerVisibleTech(false);
     }
 
     const animationProps = {
@@ -236,6 +267,10 @@ const ExplorerWindow = (props) => {
 
     const handleFrameContact = () => {
         setExplorerVisibleContact(true);
+    };
+
+    const handleFrameTech = () => {
+        setExplorerVisibleTech(true);
     };
 
     return (
@@ -282,6 +317,18 @@ const ExplorerWindow = (props) => {
                 </div>
             )}
 
+            {isExplorerVisibleTech && (
+                <div>
+                    <ExplorerWindow
+                        button3={Close}
+                        text="Technologies I Use"
+                        projects={TechInfo}
+                        iconsection={TechIcon}
+                    />
+                </div>
+            )}
+            
+
             <motion.div {...animationProps}>
                 <Icons class="id-proyects" name="My Projects" icon={Proyects} onClick={handleFrame} />
             </motion.div>
@@ -292,7 +339,7 @@ const ExplorerWindow = (props) => {
                 <Icons class="id-contact" name="Contact.exe" icon={Contact} onClick={handleFrameContact}/>
             </motion.div>
             <motion.div {...animationProps}>
-                <Icons class="id-tecnologies" name="Technologies I Use.exe" icon={Tecnologies} onClick={handleFrame}/>
+                <Icons class="id-tecnologies" name="Technologies I Use.exe" icon={Tecnologies} onClick={handleFrameTech}/>
             </motion.div>
 
             <motion.div {...animationProps2}>

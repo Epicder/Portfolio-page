@@ -58,6 +58,23 @@
   top: 4px;
 }
 .body-power-on {
-  transition: background-color 1.3s ease-in-out;
+  transition: background-color 1.4s ease-in-out;
   background-color: black;
+}
+
+.main-power-on {
+  animation: fadeOut 1.2s forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.main-power-on > * {
+  transition: opacity 1.5s ease-in-out;
+  opacity: 0;
 }

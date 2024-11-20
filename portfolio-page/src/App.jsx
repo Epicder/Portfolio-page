@@ -36,7 +36,7 @@ export default function App() {
         <main>
           <h1>Elián Portfolio</h1>
           <div className='btn-container'>
-            <button className='btn-power'><img src={powerOn} alt="Power On"/><p>Power On</p></button>
+            <button className='btn-power' onClick={handleClick}><img src={powerOn} alt="Power On"/><p>Power On</p></button>
           </div>
           
         </main>

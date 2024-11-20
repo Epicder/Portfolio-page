@@ -11,6 +11,7 @@ import Html from './assets/html.png'
 import Api from './assets/Api.png'
 import AboutMeIcon from './assets/about-me-icon.png'
 import ContactIcon from './assets/contact-icon.png'
+import ProjectsIcon from './assets/project-icon.png'
 import Me from './assets/me.jpg'
 import { useState } from 'react'
 import { motion } from "framer-motion"
@@ -133,16 +134,32 @@ const AboutMeInfo = () => {
 const ContactInfo = () => {
     return (
         <div className='contact-info'>
-            <h3>Email:</h3>
-        
-            <a href="mailto:
-            asd
-            @gmail.com">
-            <p>
-            asd
-            @gmail.com
-            </p>
-            </a>
+            <div className='contact-button'>
+                <h3>📧 Email:&nbsp;</h3>
+                <a href="mailto:epicder12@gmail.com">
+                <p>
+                    epicder12@gmail.com
+                </p>
+                </a>
+            </div>
+            
+            <div className='contact-button'>
+                <h3>🐱‍💻 Github:&nbsp;</h3>
+                <a href="https://github.com/Epicder" target="_blank">
+                <p>
+                    Epicder
+                </p>
+                </a>
+            </div>
+
+            <div className='contact-button'>
+                <h3>🔗 LinkedIn:&nbsp;</h3>
+                <a href="https://www.linkedin.com/in/epicder/" target="_blank">
+                <p>
+                    Elián González
+                </p>
+                </a>
+            </div>
         </div>
     )
 }
@@ -238,7 +255,7 @@ const ExplorerWindow = (props) => {
                         button3={Close}
                         text="Take a look of my projects :)"
                         projects={Projects}
-                        iconsection={Joystick}
+                        iconsection={ProjectsIcon}
                     />
                 </div>
             )}

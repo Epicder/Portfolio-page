@@ -1,9 +1,9 @@
 
   .id-proyects, .id-about-me, .id-contact, .id-tecnologies {
     display: flex;
-    flex-direction: column; /* Cambia el flujo a vertical */
-    justify-content: center; /* Centra el contenido verticalmente */
-    align-items: baseline; /* Centra horizontalmente */
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
     padding: 1rem;
 }
 
@@ -19,7 +19,6 @@ h3 {
 .id-about-me img, 
 .id-contact img, 
 .id-tecnologies img {
-   /* Espacio entre el ícono y el texto */
   cursor: pointer;
   position: relative;
   padding-left: 20px;
@@ -54,25 +53,25 @@ h3 {
 
 .win-98-start-btn {
   display: flex;
-  align-items: center; /* Alinea verticalmente el ícono y el texto */
-  gap: 0.5rem; /* Espaciado entre el ícono y el texto */
+  align-items: center;
+  gap: 0.5rem;
   padding: 0.1rem 0.6rem;
-  background-color: #C0C0C0; /* Fondo del botón Start */
+  background-color: #C0C0C0;
   cursor: pointer;
-  border-radius: 2px; /* Bordes ligeramente redondeados */
+  border-radius: 2px;
   border: none;
-  width: 70px; /* Ancho del botón Start */
+  width: 70px;
   box-shadow: inset 0px 2.5px 0 #ffffffde, inset -2.5px -1.5px 0 #000000d5;
 }
 
 .win-98-start-btn img {
-  width: 1.6rem; /* Ajusta el tamaño del ícono */
+  width: 1.6rem;
   height: auto;
 }
 
 .win-98-start-btn p {
   margin: 0;
-  font-size: 0.65rem; /* Tamaño del texto */
+  font-size: 0.65rem;
 }
 
 .win-98-time-date {
@@ -83,7 +82,7 @@ h3 {
   margin: 0.27rem;
   margin-right: 1rem;
   display: flex;
-  justify-content: space-between; /* Alinea los elementos a los extremos */
+  justify-content: space-between;
   background-color: #A0A0A0;
   color: #111;
   font-size: 0.55rem;
@@ -100,7 +99,7 @@ h3 {
   bottom: 70px;
   right: 30px;
 }
-/* make the text globe look like the windows 98 text globe for the virutal assistants */
+
 .clippy-text-globe {
   font-family: 'Tahoma', sans-serif;
   font-size: 0.8rem;
@@ -141,7 +140,6 @@ h3 {
   z-index: 1001;
 }
 
-/* Outer frame of the window */
 .win-explorer-frame {
   width: 400px;
   border: 2px solid #808080;
@@ -228,7 +226,7 @@ h3 {
 
 .highlight {
   font-weight: bold;
-  color: #0000a0;  /* Color azul para resaltar */
+  color: #0000a0;
 }
 
 
@@ -236,6 +234,23 @@ h3 {
   position: absolute;
   display: block;
 
+}
+
+.contact-button {
+  background-color: #C0C0C0;
+  color: #000;
+  border: 1px solid #808080;
+  box-shadow: -2px -2px 0 #fff, 2px 2px 0 #000;
+  margin-left: 5px;
+  margin-bottom: 25px;
+  padding: 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  font-size: 0.7rem;
+  font-family: "px_sans_nouveaux";
+  border-radius: 2px;
 }
 
 

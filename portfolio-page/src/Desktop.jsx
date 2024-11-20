@@ -9,6 +9,9 @@ import Close from './assets/close-icon.png'
 import Joystick from './assets/joystick.png'
 import Html from './assets/html.png'
 import Api from './assets/Api.png'
+import AboutMeIcon from './assets/about-me-icon.png'
+import ContactIcon from './assets/contact-icon.png'
+import Me from './assets/me.jpg'
 import { useState } from 'react'
 import { motion } from "framer-motion"
 
@@ -108,9 +111,47 @@ const Projects = () => {
     )
 }
 
+const AboutMeInfo = () => {
+    return (
+        <div className='about-me-container'>
+            <img src={Me} alt="Me" className='me-image'/>
+            <p className='about-me-text'>
+                Hey! I’m <span className="highlight">Elián</span>, a <span className="highlight">Full-Stack Developer</span>. <br /> <br /> I’ve been fascinated by computers, hardware, game development, and all the IT stuff since I was a kid. 
+                People call me <span className="highlight">creative</span> and I love to  <span className="highlight">mix that creativity with tech</span> to build different solutions. <br /><br />
+                I’m drawn to the <span className="highlight">artistic side of technology</span>, and I’m passionate about creating things that are not only functional but also  <span className="highlight">beautiful.</span> <br /><br /> 
+                I’m also someone who loves to explore <span className="highlight">alternative ways</span> and find new approaches to solve problems. 
+                That’s why I’m always looking to <span className="highlight">learn, grow and push</span> the limits of what’s possible. <br /><br /> 
+                I’ve always loved creating videogames, but nowadays, i keep game development as a hobby, while focusing on <span className="highlight">creating innovative things </span>
+                with the technologies I work with. <br /><br /> However, the influence of game development and <span className="highlight">user experience</span> continues to have an indirect impact on the projects I create.
+            </p>
+        </div>
+
+    )
+}
+
+
+const ContactInfo = () => {
+    return (
+        <div className='contact-info'>
+            <h3>Email:</h3>
+        
+            <a href="mailto:
+            asd
+            @gmail.com">
+            <p>
+            asd
+            @gmail.com
+            </p>
+            </a>
+        </div>
+    )
+}
+
 export default function Desktop() {
     const [isTextGlobeVisible, setTextGlobeVisible] = useState(true);
     const [isExplorerVisible, setExplorerVisible] = useState(false);
+    const [isExplorerVisibleAboutMe, setExplorerVisibleAboutMe] = useState(false);
+    const [isExplorerVisibleContact, setExplorerVisibleContact] = useState(false);
 
 const ExplorerWindow = (props) => {
     return (
@@ -125,7 +166,7 @@ const ExplorerWindow = (props) => {
                     </button>
                 </div>
                 <div className='win-explorer-content'>
-                    <h2>{props.text}</h2>
+                    <img src={props.iconsection} alt="Icon" className='icon-image'/><h2>{props.text}</h2>
                     <motion.div className='project-wrapper'{...animationPropsProjects}>
 
                         <div className='win-explorer-projects'>
@@ -145,6 +186,8 @@ const ExplorerWindow = (props) => {
 
     const closeWindow = () => {
         setExplorerVisible(false);
+        setExplorerVisibleAboutMe(false);
+        setExplorerVisibleContact(false);
     }
 
     const animationProps = {
@@ -170,6 +213,14 @@ const ExplorerWindow = (props) => {
         setExplorerVisible(true);
     };
 
+    const handleFrameAboutMe = () => {
+        setExplorerVisibleAboutMe(true);
+    };
+
+    const handleFrameContact = () => {
+        setExplorerVisibleContact(true);
+    };
+
     return (
         <>
             {isTextGlobeVisible && (
@@ -185,8 +236,31 @@ const ExplorerWindow = (props) => {
                 <div>
                     <ExplorerWindow
                         button3={Close}
-                        text="Here you can take a look of my projects :)"
+                        text="Take a look of my projects :)"
                         projects={Projects}
+                        iconsection={Joystick}
+                    />
+                </div>
+            )}
+
+            {isExplorerVisibleAboutMe && (
+                <div>
+                    <ExplorerWindow
+                        button3={Close}
+                        text="About Me"
+                        projects={AboutMeInfo}
+                        iconsection={AboutMeIcon}
+                    />
+                </div>
+            )}
+
+            {isExplorerVisibleContact && (
+                <div>
+                    <ExplorerWindow
+                        button3={Close}
+                        text="Contact"
+                        projects={ContactInfo}
+                        iconsection={ContactIcon}
                     />
                 </div>
             )}
@@ -195,10 +269,10 @@ const ExplorerWindow = (props) => {
                 <Icons class="id-proyects" name="My Projects" icon={Proyects} onClick={handleFrame} />
             </motion.div>
             <motion.div {...animationProps}>
-                <Icons class="id-about-me" name="About Me.txt" icon={AboutMe} onClick={handleFrame}/>
+                <Icons class="id-about-me" name="About Me.txt" icon={AboutMe} onClick={handleFrameAboutMe}/>
             </motion.div>
             <motion.div {...animationProps}>
-                <Icons class="id-contact" name="Contact.exe" icon={Contact} onClick={handleFrame}/>
+                <Icons class="id-contact" name="Contact.exe" icon={Contact} onClick={handleFrameContact}/>
             </motion.div>
             <motion.div {...animationProps}>
                 <Icons class="id-tecnologies" name="Technologies I Use.exe" icon={Tecnologies} onClick={handleFrame}/>

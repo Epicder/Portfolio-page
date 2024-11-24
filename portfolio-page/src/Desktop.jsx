@@ -17,7 +17,7 @@ import Me from './assets/me.jpg'
 import { useState } from 'react'
 import { motion } from "framer-motion"
 import { useEffect } from 'react'
-
+import './components/css/internet.css'
 
 const Icons = (props) => {
     return (
@@ -77,39 +77,6 @@ const animationPropsProjects = {
     transition: { duration: 1.4 }
 };
 
-
-const Projects = () => {
-    return (
-        
-        <div className='projects-container'>
-
-            <a href="https://github.com/Epicder/card-shootout-game" target="_blank">
-            <div className='project-1'>
-                <img src={Joystick} alt="Game Icon"/>      
-                <h3>Card Shootout Game</h3>
-                <p>(Dart, Flutter, Firebase)</p>
-            </div>
-            </a>
-
-            <a href="https://epicder.github.io/penalty-card-landingpage/" target="_blank">
-            <div className='project-2'>
-            <img src={Html} alt="Page Icon"/>      
-            <h3>Card Shootout Landing Page</h3>
-            <p>(Html, Css, Js)</p> 
-            </div>
-            </a>
-
-            <a href="https://github.com/AguilarJ11/holbertonschool-hbnb-db" target="_blank">
-            <div className='project-3'>
-            <img src={Api} alt="api Icon"/>
-            <h3>AirBnb Clone Api</h3>
-            <p>(Pyhton, Flask, Sqlite)</p>
-            </div>
-            </a>
-        </div>
-        
-    )
-}
 
 const AboutMeInfo = () => {
     return (
@@ -224,12 +191,14 @@ export default function Desktop() {
     const [isExplorerVisibleAboutMe, setExplorerVisibleAboutMe] = useState(false);
     const [isExplorerVisibleContact, setExplorerVisibleContact] = useState(false);
     const [isExplorerVisibleTech, setExplorerVisibleTech] = useState(false);
+    const [currentComponent, setCurrentComponent] = useState(null);
+
 
 const ExplorerWindow = (props) => {
     return (
         <div className='win-explorer-container'>
             <div className='win-explorer-frame'>
-                <div className='win-explorer-top-bar'>
+            <div className='win-explorer-top-bar'>
                     <button className='win-explorer-buttons'>
                         <img src={props.undefined} alt="-"/>
                     </button>
@@ -240,7 +209,6 @@ const ExplorerWindow = (props) => {
                 <div className='win-explorer-content'>
                     <img src={props.iconsection} alt="Icon" className='icon-image'/><h2>{props.text}</h2>
                     <motion.div className='project-wrapper'{...animationPropsProjects}>
-
                         <div className='win-explorer-projects'>
                             {props.projects()}
                         </div>
@@ -250,6 +218,82 @@ const ExplorerWindow = (props) => {
             </div>
         </div>
     );
+}
+
+const Projects = () => {
+    return (
+        <>
+        <div className='projects-container'>
+
+            <a href="https://epicder.github.io/penalty-card-landingpage/" target="_blank">
+            <div className='project-2'>
+            <img src={Html} alt="Page Icon"/>      
+            <h3>Uruguadle</h3>
+            <p>(React, Js, css, html)</p> 
+            </div>
+            </a>
+
+            <a href="https://epicder.github.io/penalty-card-landingpage/" target="_blank">
+            <div className='project-2'>
+            <img src={Html} alt="Page Icon"/>      
+            <h3>Card Shootout Landing Page</h3>
+            <p>(Html, Css, Js)</p> 
+            </div>
+            </a>
+
+            <a href="#" onClick={() => setCurrentComponent("Internet")}>
+            <div className='project-1'>
+                <img src={Joystick} alt="Game Icon"/>      
+                <h3>Card Shootout Game</h3>
+                <p>(Dart, Flutter, Firebase)</p>
+            </div>
+            </a>
+
+            <a href="https://github.com/AguilarJ11/holbertonschool-hbnb-db" target="_blank">
+            <div className='project-3'>
+            <img src={Api} alt="api Icon"/>
+            <h3>AirBnb Clone Api</h3>
+            <p>(Pyhton, Flask, Sqlite)</p>
+            </div>
+            </a>
+        </div>
+       </>   
+    )
+    
+} 
+
+const Internet = (props) => {
+
+    return (
+        <div className="internet-screen">
+            <div className='internet-top-bar'>
+                    <button className='win-explorer-buttons'>
+                        <img src={Close} alt="-"/>
+                    </button>
+                    <button className='win-explorer-buttons'>
+                        <img src={Close} alt="-"/>
+                    </button>
+              </div>
+              <div className="internet-screen-content">
+
+                <div className="internet-tools">
+                  <p>File</p>
+                  <p>Edit</p>
+                  <p>View</p>
+                  <p>Favorites</p>
+                  <p>Help</p>
+                </div>
+                
+                <div className="internet-url-bar">
+                  <p>Addres:</p>
+                  <p>{props.url}</p>
+                </div>
+                <div className="internet-content">
+
+                </div>
+              </div>
+        </div>
+    )
 }
 
     const hideTextGlobe = () => {
@@ -314,10 +358,15 @@ const ExplorerWindow = (props) => {
                     <ExplorerWindow
                         button3={Close}
                         text="Take a look of my projects :)"
-                        projects={Projects}
+                        projects={() => (
+                            <Projects setCurrentComponent={setCurrentComponent} />)}
                         iconsection={ProjectsIcon}
                     />
                 </div>
+            )}
+
+            {currentComponent === "Internet" && (
+                <Internet url="https://epicder.github.io/penalty-card-landingpage/" />
             )}
 
             {isExplorerVisibleAboutMe && (

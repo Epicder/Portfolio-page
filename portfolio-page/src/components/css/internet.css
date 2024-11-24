@@ -1,0 +1,73 @@
+.internet-screen {
+  width: 800px;
+  height: 600px;
+  border: 2px solid #000;
+  background-color: #C3C3C3;
+  font-family: 'MS Sans Serif', Arial, sans-serif;
+  z-index: 1001;
+}
+
+.internet-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000080;
+  color: white;
+  padding: 2px;
+}
+
+.win-explorer-buttons {
+  background-color: #C3C3C3;
+  border: 1px solid #808080;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2px;
+  cursor: pointer;
+}
+
+.win-explorer-buttons img {
+  width: 12px;
+  height: 12px;
+}
+
+.internet-screen-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.internet-tools {
+  display: flex;
+  background-color: #C3C3C3;
+  padding: 2px;
+  border-bottom: 2px solid #808080;
+}
+
+.internet-tools p {
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.internet-url-bar {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: 2px inset #808080;
+  padding: 2px;
+  margin: 2px;
+}
+
+.internet-url-bar p {
+  margin: 0 5px;
+}
+
+.internet-content {
+  flex-grow: 1;
+  background-color: white;
+  border: 2px inset #808080;
+  margin: 2px;
+  padding: 10px;
+}

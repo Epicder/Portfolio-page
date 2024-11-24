@@ -137,7 +137,7 @@ h3 {
   transform: translate(-50%, -50%);
   background-color: transparent;
   font-family: "Microsoft Sans Serif", Arial, sans-serif;
-  z-index: 1001;
+  z-index: 1;
 }
 
 .win-explorer-frame {
@@ -193,14 +193,11 @@ h3 {
   position: relative;
 }
 
-.project-1 {
-  padding-bottom: 2rem;
+.project-1, .project-2, .project-3 {
+  padding-bottom: 1.7rem;
   padding-top: 0.5rem;
 }
-.project-2 {
-  padding-bottom: 2rem;
-  padding-top: 0.5rem;
-}
+
 .project-1 h3 {
   text-decoration: none 
 }
@@ -286,3 +283,8 @@ h3 {
   }
 }
 
+.projects-container {
+  height: 475px;
+  width: 400px;
+  overflow: auto;
+}

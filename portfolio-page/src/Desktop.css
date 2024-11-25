@@ -95,7 +95,7 @@ h3 {
   position: absolute;
   bottom: 0;
   right: 0;
-  z-index: 100;
+  z-index: 0;
   bottom: 70px;
   right: 30px;
 }

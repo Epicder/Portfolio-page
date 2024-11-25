@@ -1,4 +1,22 @@
 import './Desktop.css'
+import './components/css/internet.css'
+import { useState } from 'react'
+import { motion } from "framer-motion"
+import { useEffect } from 'react'
+import Draggable from 'react-draggable';
+
+////////////// COMPONENTS ////////////
+
+import Icons from './components/Icons'
+import Taskbar from './components/Taskbar'
+import ClippyAsistant from './components/ClippyAsistant'
+import TextGlobe from './components/textGlobe'
+import AboutMeInfo from './components/AboutMeInfo'
+import ContactInfo from './components/ContactInfo'
+import TechInfo from './components/TechInfo'
+
+////////////// ASSETS ///////////////
+
 import Proyects from './assets/folder.png'
 import AboutMe from './assets/notepad.png'
 import Contact from './assets/contact.png'
@@ -14,155 +32,14 @@ import ContactIcon from './assets/contact-icon.png'
 import ProjectsIcon from './assets/project-icon.png'
 import TechIcon from './assets/tech-icon.png'
 import Me from './assets/me.jpg'
-import { useState } from 'react'
-import { motion } from "framer-motion"
-import { useEffect } from 'react'
-import './components/css/internet.css'
-import Draggable from 'react-draggable';
 
-const Icons = (props) => {
-    return (
-        <>
-            <div className="id-container">
-            
-            <div className={props.class}>
-                <div className='icon-wrapper' onClick={props.onClick}>
-                <img src={props.icon} alt="Windows Icon" />
-                <p>{props.name}</p>
-                </div>
-                
-            </div>    
-        </div>
-        
-        </>
-        
-    ); 
-}
-  const Taskbar = (props) => {
-    return (
-        <>
-        <div className='win-98-taskbar'>
-            <div className='win-98-start-btn'> <img src={props.icon} alt="Power on icon" />
-                <p>Start</p>
-            </div>
-            <div className='win-98-time-date'><p>11:28 PM</p></div>
-        </div>
-        </>
-    ) 
-  }
-
-  const ClippyAsistant = (props) => {
-    return (
-        <>
-        <div className='clippy-asistant'>
-            <img src={props.icon}
-             alt="Clippy asistant" />
-        </div>
-        </>
-    )
-}
-
-const TextGlobe = (props) => {
-    const handleTextGlobe = () => {
-        props.onClose();
-    };
-
-    return (
-        <div className="clippy-asistant">
-            <div className="clippy-text-globe">
-                <p>{props.text}</p>
-                <button onClick={handleTextGlobe}>Got it!</button>
-            </div>
-        </div>
-    );
-};
+////////////////////////////////////
 
 const animationPropsProjects = {
     initial: { opacity: 0, y: 15 },
     animate: { opacity: 1, y: 0 },
     transition: { duration: 1.4 }
 };
-
-
-const AboutMeInfo = () => {
-    return (
-        <div className='about-me-container'>
-            <img src={Me} alt="Me" className='me-image'/>
-            <p className='about-me-text'>
-                Hey! I’m <span className="highlight">Elián</span>, a <span className="highlight">Full-Stack Developer</span>. <br /> <br /> I’ve been fascinated by computers, hardware, game development, and all the IT stuff since I was a kid. 
-                People call me <span className="highlight">creative</span> and I love to  <span className="highlight">mix that creativity with tech</span> to build different solutions. <br /><br />
-                I’m drawn to the <span className="highlight">artistic side of technology</span>, and I’m passionate about creating things that are not only functional but also  <span className="highlight">beautiful.</span> <br /><br /> 
-                I’m also someone who loves to explore <span className="highlight">alternative ways</span> and find new approaches to solve problems. 
-                That’s why I’m always looking to <span className="highlight">learn, grow and push</span> the limits of what’s possible. <br /><br /> 
-                I’ve always loved creating videogames, but nowadays, i keep game development as a hobby, while focusing on <span className="highlight">creating innovative things </span>
-                with the technologies I work with. <br /><br /> However, the influence of game development and <span className="highlight">user experience</span> continues to have an indirect impact on the projects I create.
-            </p>
-        </div>
-
-    )
-}
-
-
-const ContactInfo = () => {
-    return (
-        <div className='contact-info'>
-            <a href="mailto:epicder12@gmail.com">
-            <div className='contact-button'>
-                <h3>📧 Email:&nbsp;</h3>
-                <p>
-                    epicder12@gmail.com
-                </p>
-            </div>
-            </a>
-            <a href="https://github.com/Epicder" target="_blank">
-            <div className='contact-button'>
-                <h3>🐱‍💻 Github:&nbsp;</h3>
-
-                <p>
-                    Epicder
-                </p>
-                
-            </div>
-            </a>
-            <a href="https://www.linkedin.com/in/epicder/" target="_blank">
-            <div className='contact-button'>
-                <h3>🔗 LinkedIn:&nbsp;</h3> 
-                <p>
-                    Elián González
-                </p>  
-            </div>
-            </a>
-        </div>
-    )
-}
-
-const TechInfo = () => {
-    return (
-        <div className='tech-info'>
-            <h2>🔧 FrontEnd</h2>
-            <div className='tech-button'>
-                
-                <p>
-                    React, JavaScript, TypeScript, Html, Css, Flutter
-                </p>
-            </div>
-            <h2>🔨 BackEnd</h2>
-            <div className='tech-button'>
-                
-                <p>
-                    Node.js, Express, Python, Flask, Firebase(Firestore, Auth, Storage)
-                </p>
-            </div>
-            <h2>📦 Enviroment/Tools</h2>
-            <div className='tech-button'>
-                <h3></h3>
-                <p>
-                    Git, Github, VSCode, Android Studio, Figma, Adobe Photoshop
-                </p>
-                </div>
-        </div>
-    )
-}
 
 export default function Desktop() {
 
@@ -192,16 +69,15 @@ export default function Desktop() {
       }, []);
 
 
-    const [isTextGlobeVisible, setTextGlobeVisible] = useState(true);
-    const [isExplorerVisible, setExplorerVisible] = useState(false);
-    const [isExplorerVisibleAboutMe, setExplorerVisibleAboutMe] = useState(false);
-    const [isExplorerVisibleContact, setExplorerVisibleContact] = useState(false);
-    const [isExplorerVisibleTech, setExplorerVisibleTech] = useState(false);
-    const [isInternetVisible, setInternetVisible] = useState(false);
-    const [isInternetVisible2, setInternetVisible2] = useState(false);
-    const [currentComponent, setCurrentComponent] = useState(null);
-    const [currentComponent2, setCurrentComponent2] = useState(null);
-    
+const [isTextGlobeVisible, setTextGlobeVisible] = useState(true);
+const [isExplorerVisible, setExplorerVisible] = useState(false);
+const [isExplorerVisibleAboutMe, setExplorerVisibleAboutMe] = useState(false);
+const [isExplorerVisibleContact, setExplorerVisibleContact] = useState(false);
+const [isExplorerVisibleTech, setExplorerVisibleTech] = useState(false);
+const [isInternetVisible, setInternetVisible] = useState(false);
+const [isInternetVisible2, setInternetVisible2] = useState(false);
+const [currentComponent, setCurrentComponent] = useState(null);
+const [currentComponent2, setCurrentComponent2] = useState(null);    
 
 
 const ExplorerWindow = (props) => {
@@ -359,6 +235,8 @@ const Internet = (props) => {
     const handleFrameTech = () => {
         setExplorerVisibleTech(true);
     };
+
+    
 
     return (
         <>

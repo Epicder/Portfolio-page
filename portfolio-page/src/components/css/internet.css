@@ -19,6 +19,15 @@
   padding: 2px;
 }
 
+
+.internet-top-bar img {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+  margin-left: 3px;
+}
+
+
 .in-win-explorer-buttons {
   background-color: #e0e0e0;
   color: #000;
@@ -26,15 +35,17 @@
   box-shadow: -1px -1px 0 #fff, 1px 1px 0 #000;
   margin-left: auto;
   cursor: pointer;
-  padding: 3px 4px;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 20px;
+  height: 20px;
 }
 
-.win-explorer-buttons img {
-  width: 12px;
-  height: 12px;
+.in-win-explorer-buttons img {
+  width: 17px;
+  height: 17px;
+  margin: 10px;
 }
 
 .internet-screen-content {
@@ -54,6 +65,7 @@
 .internet-tools p {
   margin: 0 10px;
   cursor: pointer;
+  font-size: 13px;
 }
 
 .first-letter {
@@ -69,6 +81,11 @@
   border: 2px inset #2b2b2b;
   padding: 2px;
   margin: 2px 0;
+}
+
+.internet-url-bar button {
+  font-weight: bold;
+  font-size: 14px;
 }
 
 .internet-url-bar p {
@@ -99,20 +116,28 @@ iframe {
 @media (max-width: 800px) {
   .internet-screen {
     position: absolute;
-
-    width: 95%;
+    width: 100%;
     height: 100%;
+    max-height: 100%;
+  }
+
+  .internet-tools p {
+    font-size: 11px;
   }
 
   .internet-url-bar {
-    flex-direction: column;
-    align-items: flex-start;
-    width: 90%;
-    font-size: 12px;
+    width: 98%;
+    height: 4%;
+    font-size: 14px;
   }
 
   .internet-url-bar p {
-    margin: 2px 0;
+    margin: 2px 15px;
+    font-size: 11px;
+  }
+  .internet-url-bar button {
+    font-weight: bold;
+    font-size: 11px;
   }
 }
 

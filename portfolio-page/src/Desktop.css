@@ -1,5 +1,5 @@
 
-  .id-proyects, .id-about-me, .id-contact, .id-tecnologies {
+  .id-proyects, .id-about-me, .id-contact, .id-tecnologies, .id-paint {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -18,7 +18,8 @@ h3 {
 .id-proyects img, 
 .id-about-me img, 
 .id-contact img, 
-.id-tecnologies img {
+.id-tecnologies img,
+.id-paint img {
   cursor: pointer;
   position: relative;
   padding-left: 20px;
@@ -27,7 +28,8 @@ h3 {
 .id-proyects p, 
 .id-about-me p, 
 .id-contact p, 
-.id-tecnologies p {
+.id-tecnologies p,
+.id-paint p {
     font-size: 0.65rem;
     margin: 0.5rem;
     cursor: pointer;

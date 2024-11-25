@@ -32,6 +32,8 @@ import ContactIcon from './assets/contact-icon.png'
 import ProjectsIcon from './assets/project-icon.png'
 import TechIcon from './assets/tech-icon.png'
 import Me from './assets/me.jpg'
+import Paint from './assets/mspaint.png'
+import Explorer from './assets/explorer.png'
 
 ////////////////////////////////////
 
@@ -77,7 +79,8 @@ const [isExplorerVisibleTech, setExplorerVisibleTech] = useState(false);
 const [isInternetVisible, setInternetVisible] = useState(false);
 const [isInternetVisible2, setInternetVisible2] = useState(false);
 const [currentComponent, setCurrentComponent] = useState(null);
-const [currentComponent2, setCurrentComponent2] = useState(null);    
+const [currentComponent2, setCurrentComponent2] = useState(null);  
+const [isMsPaintVisible, setMsPaintVisible] = useState(false);
 
 
 const ExplorerWindow = (props) => {
@@ -155,7 +158,7 @@ const Internet = (props) => {
         <Draggable>
         <div className="internet-screen">
             <div className='internet-top-bar'>
-            Internet Explorer
+            <img src={Explorer} alt="explorer icon"/>Internet Explorer
                     <button className='in-win-explorer-buttons' onClick={hideInternet}>
                         <img src={Close} alt="-"/>
                     </button>                 
@@ -172,7 +175,7 @@ const Internet = (props) => {
                 
                 <div className="internet-url-bar">
                     <a href={props.url} target='_blank'>
-                    <button className='internet-url-bar-address'>Click to go to the original page</button>
+                    <button className='internet-url-bar-address'><p>Click this to go to the original page!</p></button>
                     </a>
                   <p>{props.url}</p>
                 </div>
@@ -234,6 +237,10 @@ const Internet = (props) => {
 
     const handleFrameTech = () => {
         setExplorerVisibleTech(true);
+    };
+
+    const handleMsPaint = () => {
+        setMsPaintVisible(true);
     };
 
     
@@ -301,7 +308,13 @@ const Internet = (props) => {
                     />
                 </div>
             )}
-            
+
+            {isMsPaintVisible && (
+                <div>
+
+                </div>
+            )}
+
             <motion.div {...animationProps}>
                 <Icons class="id-proyects" name="My Projects" icon={Proyects} onClick={handleFrame} />
             </motion.div>
@@ -324,6 +337,10 @@ const Internet = (props) => {
 
             <motion.div {...animationProps2}>
                 <ClippyAsistant icon={Clippy} />
+            </motion.div>
+
+            <motion.div {...animationProps2}>
+                <Icons class="id-paint" name="Mspaint.exe" icon={Paint} onClick={handleMsPaint}/>
             </motion.div>
         </>
     );

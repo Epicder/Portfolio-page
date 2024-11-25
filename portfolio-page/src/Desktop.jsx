@@ -32,7 +32,7 @@ import ContactIcon from './assets/contact-icon.png'
 import ProjectsIcon from './assets/project-icon.png'
 import TechIcon from './assets/tech-icon.png'
 import Me from './assets/me.jpg'
-import Paint from './assets/mspaint.png'
+//import Paint from './assets/mspaint.png'
 import Explorer from './assets/explorer.png'
 
 ////////////////////////////////////
@@ -80,7 +80,7 @@ const [isInternetVisible, setInternetVisible] = useState(false);
 const [isInternetVisible2, setInternetVisible2] = useState(false);
 const [currentComponent, setCurrentComponent] = useState(null);
 const [currentComponent2, setCurrentComponent2] = useState(null);  
-const [isMsPaintVisible, setMsPaintVisible] = useState(false);
+// const [isMsPaintVisible, setMsPaintVisible] = useState(false);
 
 
 const ExplorerWindow = (props) => {
@@ -239,9 +239,9 @@ const Internet = (props) => {
         setExplorerVisibleTech(true);
     };
 
-    const handleMsPaint = () => {
-        setMsPaintVisible(true);
-    };
+    //const handleMsPaint = () => {
+       // setMsPaintVisible(true);
+   // };
 
     
 
@@ -308,13 +308,7 @@ const Internet = (props) => {
                     />
                 </div>
             )}
-
-            {isMsPaintVisible && (
-                <div>
-
-                </div>
-            )}
-
+ 
             <motion.div {...animationProps}>
                 <Icons class="id-proyects" name="My Projects" icon={Proyects} onClick={handleFrame} />
             </motion.div>
@@ -339,9 +333,12 @@ const Internet = (props) => {
                 <ClippyAsistant icon={Clippy} />
             </motion.div>
 
-            <motion.div {...animationProps2}>
-                <Icons class="id-paint" name="Mspaint.exe" icon={Paint} onClick={handleMsPaint}/>
-            </motion.div>
+           
         </>
     );
 }
+
+// mspaint for future
+//<motion.div {...animationProps2}>
+//<Icons class="id-paint" name="Mspaint.exe" icon={Paint} onClick={handleMsPaint}/>
+//</motion.div>

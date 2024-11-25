@@ -18,10 +18,13 @@ import { useState } from 'react'
 import { motion } from "framer-motion"
 import { useEffect } from 'react'
 import './components/css/internet.css'
+import Draggable from 'react-draggable';
 
 const Icons = (props) => {
     return (
-        <div className="id-container">
+        <>
+            <div className="id-container">
+            
             <div className={props.class}>
                 <div className='icon-wrapper' onClick={props.onClick}>
                 <img src={props.icon} alt="Windows Icon" />
@@ -30,6 +33,9 @@ const Icons = (props) => {
                 
             </div>    
         </div>
+        
+        </>
+        
     ); 
 }
   const Taskbar = (props) => {
@@ -191,11 +197,16 @@ export default function Desktop() {
     const [isExplorerVisibleAboutMe, setExplorerVisibleAboutMe] = useState(false);
     const [isExplorerVisibleContact, setExplorerVisibleContact] = useState(false);
     const [isExplorerVisibleTech, setExplorerVisibleTech] = useState(false);
+    const [isInternetVisible, setInternetVisible] = useState(false);
+    const [isInternetVisible2, setInternetVisible2] = useState(false);
     const [currentComponent, setCurrentComponent] = useState(null);
+    const [currentComponent2, setCurrentComponent2] = useState(null);
+    
 
 
 const ExplorerWindow = (props) => {
     return (
+
         <div className='win-explorer-container'>
             <div className='win-explorer-frame'>
             <div className='win-explorer-top-bar'>
@@ -217,6 +228,7 @@ const ExplorerWindow = (props) => {
                 </div>
             </div>
         </div>
+        
     );
 }
 
@@ -225,7 +237,7 @@ const Projects = () => {
         <>
         <div className='projects-container'>
 
-            <a href="https://epicder.github.io/penalty-card-landingpage/" target="_blank">
+            <a href="#" onClick={() => {setCurrentComponent("Internet"); setInternetVisible(true)}}>
             <div className='project-2'>
             <img src={Html} alt="Page Icon"/>      
             <h3>Uruguadle</h3>
@@ -233,7 +245,7 @@ const Projects = () => {
             </div>
             </a>
 
-            <a href="https://epicder.github.io/penalty-card-landingpage/" target="_blank">
+            <a href="#" onClick={() => {setCurrentComponent2("Internet"); setInternetVisible2(true)}}>
             <div className='project-2'>
             <img src={Html} alt="Page Icon"/>      
             <h3>Card Shootout Landing Page</h3>
@@ -241,7 +253,7 @@ const Projects = () => {
             </div>
             </a>
 
-            <a href="#" onClick={() => setCurrentComponent("Internet")}>
+            <a href="https://github.com/Epicder/card-shootout-game" target="_blank">
             <div className='project-1'>
                 <img src={Joystick} alt="Game Icon"/>      
                 <h3>Card Shootout Game</h3>
@@ -263,41 +275,47 @@ const Projects = () => {
 } 
 
 const Internet = (props) => {
-
     return (
+        <Draggable>
         <div className="internet-screen">
             <div className='internet-top-bar'>
-                    <button className='win-explorer-buttons'>
+            Internet Explorer
+                    <button className='in-win-explorer-buttons' onClick={hideInternet}>
                         <img src={Close} alt="-"/>
-                    </button>
-                    <button className='win-explorer-buttons'>
-                        <img src={Close} alt="-"/>
-                    </button>
+                    </button>                 
               </div>
               <div className="internet-screen-content">
 
                 <div className="internet-tools">
-                  <p>File</p>
-                  <p>Edit</p>
-                  <p>View</p>
-                  <p>Favorites</p>
-                  <p>Help</p>
+                  <p><span className='first-letter'>F</span>ile</p>
+                  <p><span className='first-letter'>E</span>dit</p>
+                  <p><span className='first-letter'>V</span>iew</p>
+                  <p>F<span className='first-letter'>a</span>vorites</p>
+                  <p><span className='first-letter'>H</span>elp</p>
                 </div>
                 
                 <div className="internet-url-bar">
-                  <p>Addres:</p>
+                    <a href={props.url} target='_blank'>
+                    <button className='internet-url-bar-address'>Click to go to the original page</button>
+                    </a>
                   <p>{props.url}</p>
                 </div>
                 <div className="internet-content">
-
+                <iframe src={props.iframe} frameborder="1"></iframe>
                 </div>
               </div>
         </div>
+        </Draggable>
     )
 }
 
     const hideTextGlobe = () => {
         setTextGlobeVisible(false);
+    };
+
+    const hideInternet = () => {
+        setInternetVisible(false);
+        setInternetVisible2(false);
     };
 
     const closeWindow = () => {
@@ -365,8 +383,12 @@ const Internet = (props) => {
                 </div>
             )}
 
-            {currentComponent === "Internet" && (
-                <Internet url="https://epicder.github.io/penalty-card-landingpage/" />
+            {currentComponent === "Internet" && isInternetVisible && (
+                <Internet url="https://uruguadle.com/" iframe="https://uruguadle.com"/>
+            )}
+
+            {currentComponent2 === "Internet" && isInternetVisible2 && (
+                    <Internet url="https://epicder.github.io/penalty-card-landingpage/" iframe="https://epicder.github.io/penalty-card-landingpage/"/>
             )}
 
             {isExplorerVisibleAboutMe && (

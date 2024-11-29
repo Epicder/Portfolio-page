@@ -1,6 +1,6 @@
 # 🖥️ Windows 98 Portfolio  
 
-A **creative and interactive portfolio** designed to showcase my projects and skills in a truly unique way.  
+A **creative and interactive portfolo** designed to showcase my projects and skills in a truly unique way.  
 
 ### Built With:  
 - **React**  

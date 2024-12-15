@@ -78,8 +78,10 @@ const [isExplorerVisibleContact, setExplorerVisibleContact] = useState(false);
 const [isExplorerVisibleTech, setExplorerVisibleTech] = useState(false);
 const [isInternetVisible, setInternetVisible] = useState(false);
 const [isInternetVisible2, setInternetVisible2] = useState(false);
+const [isInternetVisible3, setInternetVisible3] = useState(false);
 const [currentComponent, setCurrentComponent] = useState(null);
-const [currentComponent2, setCurrentComponent2] = useState(null);  
+const [currentComponent2, setCurrentComponent2] = useState(null);
+const [currentComponent3, setCurrentComponent3] = useState(null);
 // const [isMsPaintVisible, setMsPaintVisible] = useState(false);
 
 
@@ -115,6 +117,14 @@ const Projects = () => {
     return (
         <>
         <div className='projects-container'>
+
+            <a href="#" onClick={() => {setCurrentComponent3("Internet"); setInternetVisible3(true)}}>
+            <div className='project-2'>
+            <img src={Html} alt="Page Icon"/>      
+            <h3>CodePM!</h3>
+            <p>(React, Js, css, html)</p> 
+            </div>
+            </a>
 
             <a href="#" onClick={() => {setCurrentComponent("Internet"); setInternetVisible(true)}}>
             <div className='project-2'>
@@ -195,6 +205,7 @@ const Internet = (props) => {
     const hideInternet = () => {
         setInternetVisible(false);
         setInternetVisible2(false);
+        setInternetVisible3(false);
     };
 
     const closeWindow = () => {
@@ -274,6 +285,10 @@ const Internet = (props) => {
 
             {currentComponent2 === "Internet" && isInternetVisible2 && (
                     <Internet url="https://epicder.github.io/penalty-card-landingpage/" iframe="https://epicder.github.io/penalty-card-landingpage/"/>
+            )}
+
+            {currentComponent3 === "Internet" && isInternetVisible3 && (
+                    <Internet url="https://codepm.tech" iframe="https://codepm.tech"/>
             )}
 
             {isExplorerVisibleAboutMe && (
